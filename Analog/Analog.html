@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clock</title>
+  <link rel="stylesheet" href="Analog.css" />
+</head>
+<body>
+
+  <div class="face" id="face">
+    <!-- Numbers are injected by JS -->
+     
+    <svg class="tick-layer" id="tick-layer" viewBox="-130 -130 260 260">
+    <!-- SVG coordinate system centered at 0,0 so our cos/sin math works directly -->
+    <!-- viewBox="-130 -130 260 260" means center is at 0,0 and edges are at ±130 -->
+    </svg>
+
+    <div class="hand hour" id="hour"></div>
+    <div class="hand min"  id="min"></div>
+    <div class="hand sec"  id="sec"></div>
+    <div class="dot"></div>
+  </div>
+
+  <script src="Analog.js"></script>
+</body>
+</html>

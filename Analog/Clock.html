@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clock</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=DM+Mono:wght@300&display=swap" rel="stylesheet">
+  <!-- DM Sans for the date label, DM Mono for the digital time — clean and modern -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="scene">
+  <!-- Outer scene — holds the clock and the text beneath it -->
+
+    <div class="face" id="face">
+    <!-- The circular clock face — numbers and ticks injected by JS -->
+
+      <svg id="tick-layer" viewBox="-150 -150 300 300">
+      <!-- SVG centered at 0,0 so cos/sin math works directly -->
+      </svg>
+
+      <div class="hand hour" id="hour"></div>
+      <div class="hand min"  id="min"></div>
+      <div class="hand sec"  id="sec"></div>
+      <div class="dot"></div>
+
+    </div>
+
+    <div class="info">
+      <div class="info-time" id="info-time"></div>
+      <!-- Digital time shown below the clock -->
+      <div class="info-date" id="info-date"></div>
+      <!-- Full date shown below the digital time -->
+    </div>
+
+  </div>
+
+  <script src="Clock.js"></script>
+</body>
+</html>

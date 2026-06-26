@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!-- Tells the browser this is an HTML5 document -->
+
+<html lang="en">
+<!-- Root element of the page; lang="en" helps screen readers and search engines -->
+
+<head>
+<!-- Contains metadata — nothing in <head> is visible on the page -->
+
+  <meta charset="UTF-8" />
+  <!-- Allows the page to use all standard characters (letters, symbols, emoji) -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Makes the page scale correctly on mobile screens instead of zooming out -->
+
+  <title>Clock</title>
+  <!-- Text shown on the browser tab -->
+
+  <link rel="stylesheet" href="Digital.css" />
+  <!-- Loads our external CSS file so the page picks up all the styles -->
+
+</head>
+
+<body>
+<!-- Everything inside <body> is what the user actually sees -->
+
+  <div class="wrap">
+  <!-- Outer wrapper — used in CSS to center everything on the page -->
+
+    <div class="clock-face">
+    <!-- The card that holds the time, date, and timezone -->
+
+      <div class="time">
+      <!-- Row that holds the hour, minute, second, and AM/PM spans side by side -->
+
+        <span id="clock-hours">--</span>
+        <!-- Displays the current hour; starts as "--" until JS runs -->
+
+        <span class="sep">:</span>
+        <!-- Static colon separator between hours and minutes; CSS makes it blink -->
+
+        <span id="clock-minutes">--</span>
+        <!-- Displays the current minutes -->
+
+        <span class="sep" id="clock-seconds-separator">:</span>
+        <!-- Colon before seconds; hidden by JS when seconds are toggled off -->
+
+        <span id="clock-seconds">--</span>
+        <!-- Displays the current seconds; hidden by JS when toggled off -->
+
+        <span class="meridiem" id="clock-meridiem"></span>
+        <!-- Displays AM or PM; hidden entirely in 24-hour mode -->
+
+      </div>
+
+      <div class="date-line" id="clock-date"></div>
+      <!-- Empty on load; JS fills this with the full date string -->
+
+      <div class="timezone-label" id="clock-timezone"></div>
+      <!-- Empty on load; JS fills this with the user's IANA timezone -->
+
+    </div>
+
+    <div class="controls">
+    <!-- Row of buttons below the clock face -->
+
+      <button id="btn-format-12" class="active" onclick="setHourFormat(12)">12-hour</button>
+      <!-- Switches to 12-hour mode; onclick must match the function name in clock.js exactly -->
+
+      <button id="btn-format-24" onclick="setHourFormat(24)">24-hour</button>
+      <!-- Switches to 24-hour mode; onclick must match the function name in clock.js exactly -->
+
+      <button id="btn-toggle-seconds" class="active" onclick="toggleSecondsVisibility()">Seconds</button>
+      <!-- Toggles seconds on/off; onclick must match the function name in clock.js exactly -->
+
+    </div>
+  </div>
+
+  <script src="Digital.js"></script>
+  <!-- Loads our JS file at the end of <body> so the HTML elements above exist before JS tries to find them -->
+
+</body>
+</html>

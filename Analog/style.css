@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=DM+Mono:wght@300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* Clean slate — removes all default browser spacing */
+}
+
+body {
+  background: #080808;
+  /* Near-black — makes the clock glow against the page */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  /* Centers the scene both vertically and horizontally */
+}
+
+.scene {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  /* Stacks the clock face and the info text with breathing room */
+}
+
+/* ── CLOCK FACE ── */
+
+.face {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  /* Turns the square div into a perfect circle */
+  background: radial-gradient(circle at 35% 35%, #1e1e1e, #0e0e0e);
+  /* Subtle radial gradient gives the face a slight convex, watch-glass feel */
+  border: 1px solid #2a2a2a;
+  /* Thin outer ring — refined, not chunky */
+  box-shadow:
+    0 0 0 6px #111,
+    0 0 0 7px #222,
+    0 30px 80px rgba(0, 0, 0, 0.8);
+  /* Three-layer shadow: inner bezel ring, outer bezel edge, deep drop shadow */
+  position: relative;
+  /* Required so SVG, hands, and numbers are positioned inside this circle */
+}
+
+/* ── SVG TICK LAYER ── */
+
+#tick-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Stretches the SVG to fill the full clock face */
+}
+
+/* ── HOUR NUMBERS ── */
+
+.number {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  text-align: center;
+  line-height: 26px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  /* Light weight feels modern and refined */
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: #555;
+  /* Very muted — numbers are guides, not the focus */
+}
+
+/* ── HANDS ── */
+
+.hand {
+  position: absolute;
+  border-radius: 99px;
+  /* Fully rounded ends on all hands */
+}
+
+.hour {
+  width: 4px;
+  height: 80px;
+  /* Short and thick — authority */
+  background: linear-gradient(to top, #fff, #aaa);
+  /* Subtle gradient makes the hand look slightly tapered */
+  bottom: calc(50% - 14px);
+  /* 14px tail below the center pivot */
+  left: calc(50% - 2px);
+  /* Exactly centered */
+  transform-origin: center calc(100% - 14px);
+  /* Rotate around the pivot point 14px from the bottom */
+}
+
+.min {
+  width: 2.5px;
+  height: 108px;
+  /* Long and slim — precision */
+  background: linear-gradient(to top, #fff, #bbb);
+  bottom: calc(50% - 16px);
+  left: calc(50% - 1.25px);
+  transform-origin: center calc(100% - 16px);
+}
+
+.sec {
+  width: 1px;
+  height: 118px;
+  /* Thinnest and longest — speed */
+  background: #e74c3c;
+  /* Classic red — instantly readable */
+  bottom: calc(50% - 24px);
+  /* Longer tail for a counterbalance effect */
+  left: calc(50% - 0.5px);
+  transform-origin: center calc(100% - 24px);
+}
+
+/* ── CENTER DOT ── */
+
+.dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #e74c3c;
+  /* Matches the second hand */
+  border: 2px solid #fff;
+  /* White ring lifts the dot above all three hands */
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  /* Always on top */
+}
+
+/* ── INFO BELOW THE CLOCK ── */
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.info-time {
+  font-family: 'DM Mono', monospace;
+  font-weight: 300;
+  font-size: 22px;
+  letter-spacing: 0.15em;
+  /* Wide tracking gives the digital time an instrument-panel feel */
+  color: #444;
+  /* Muted — supports the clock, doesn't compete with it */
+}
+
+.info-date {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  /* Even wider tracking for the date — reads like a caption */
+  text-transform: uppercase;
+  color: #2e2e2e;
+  /* Barely visible — tertiary information */
+}

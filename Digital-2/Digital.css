@@ -1,0 +1,148 @@
+* {
+  box-sizing: border-box;
+  /* Makes padding and border count inside an element's width/height, not on top of it */
+  margin: 0;
+  padding: 0;
+  /* Removes default browser spacing so we start from a clean slate */
+}
+
+body {
+  font-family: monospace;
+  /* Uses a fixed-width font so digits don't shift width as numbers change */
+  background: #111;
+  /* Near-black background for the whole page */
+  color: #f0f0f0;
+  /* Off-white default text color */
+  min-height: 100vh;
+  /* Makes the body at least as tall as the viewport */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* These three lines together center .wrap both vertically and horizontally */
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  /* Stacks children (clock face + buttons) vertically */
+  align-items: center;
+  /* Centers children horizontally */
+  gap: 2rem;
+  /* Adds space between the clock face and the button row */
+}
+
+.clock-face {
+  background: #1a1a1a;
+  /* Slightly lighter than the page background so the card stands out */
+  border: 1px solid #2e2e2e;
+  /* Subtle border to define the card edge */
+  border-radius: 20px;
+  /* Rounds the corners of the card */
+  padding: 2.5rem 3rem;
+  /* Breathing room inside the card (top/bottom, left/right) */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Centers time, date, and timezone horizontally inside the card */
+  gap: 0.75rem;
+  /* Space between each row inside the card */
+  min-width: 360px;
+  /* Prevents the card from collapsing too narrow on small screens */
+}
+
+.time {
+  font-size: 64px;
+  /* Large enough to read at a glance */
+  font-weight: 500;
+  /* Medium weight — bold enough without feeling heavy */
+  letter-spacing: 2px;
+  /* Slight spacing between characters for readability */
+  color: #f0f0f0;
+  line-height: 1;
+  /* Removes extra vertical space above/below the text */
+  display: flex;
+  align-items: baseline;
+  /* Aligns all spans (including the smaller AM/PM) along the text baseline */
+}
+
+.meridiem {
+  font-size: 22px;
+  /* Smaller than the digits so it doesn't compete visually */
+  font-weight: 400;
+  color: #888;
+  /* Muted so it reads as secondary information */
+  margin-left: 12px;
+  /* Separates AM/PM from the seconds */
+  letter-spacing: 1px;
+}
+
+.date-line {
+  font-size: 15px;
+  color: #888;
+  /* Muted color — secondary to the time */
+  letter-spacing: 0.5px;
+  font-family: sans-serif;
+  /* Switches to sans-serif for the date — less rigid than monospace for text */
+}
+
+.timezone-label {
+  font-size: 12px;
+  /* Smallest text on the clock — least important piece of info */
+  color: #555;
+  /* More muted than the date to create a visual hierarchy */
+  letter-spacing: 0.5px;
+  font-family: sans-serif;
+}
+
+.sep {
+  color: #555;
+  /* Muted so the colons don't compete with the digits */
+  animation: blink 1s step-end infinite;
+  /* Runs the blink keyframe below on a 1-second loop, forever */
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  /* Colon is fully visible at the start and end of each second */
+  50%       { opacity: 0.2; }
+  /* Colon fades to near-invisible at the halfway point */
+  /* step-end on the animation means it jumps instantly, not gradually */
+}
+
+.controls {
+  display: flex;
+  /* Lays buttons out in a row */
+  gap: 10px;
+  /* Space between buttons */
+  flex-wrap: wrap;
+  /* Wraps onto a second line if the screen is too narrow */
+  justify-content: center;
+  /* Centers the button row */
+}
+
+button {
+  font-family: sans-serif;
+  font-size: 13px;
+  padding: 6px 16px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: transparent;
+  /* Buttons start with no fill — only the border defines them */
+  color: #aaa;
+  cursor: pointer;
+  /* Changes the mouse cursor to a hand on hover */
+  transition: background 0.15s, color 0.15s;
+  /* Smoothly animates background and color changes over 150ms */
+}
+
+button:hover {
+  background: #222;
+  /* Slight fill appears when hovering */
+  color: #f0f0f0;
+  /* Text brightens on hover */
+}
+
+button.active {
+  background: #1a2f4a;
+  }
+  /* Dark blue

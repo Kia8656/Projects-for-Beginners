@@ -1,0 +1,98 @@
+/* Removes default browser spacing — we control all margin/padding manually */
+/* box-sizing: border-box makes padding included in the element's total size */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Flexbox centers the card both horizontally and vertically on the screen */
+/* min-height: 100vh = fills the full screen height */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1a1a2e;
+    display: flex;
+    justify-content: center; /* centers horizontally */
+    align-items: center;     /* centers vertically */
+    min-height: 100vh;
+    color: #ffffff;
+}
+
+/* The main card that wraps everything — box-shadow creates a floating effect */
+.container {
+    background-color: #16213e;
+    padding: 50px 60px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* letter-spacing and text-transform give the title a clean digital look */
+.title {
+    font-size: 2rem;
+    letter-spacing: 6px;
+    text-transform: uppercase; /* forces all caps regardless of HTML text */
+    color: #e94560;
+    margin-bottom: 40px;
+}
+
+/* Monospace font keeps digit width consistent — prevents display from jumping */
+.display {
+    font-size: 3.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #0f3460;
+    padding: 25px 35px;
+    border-radius: 12px;
+    letter-spacing: 4px;
+    color: #00d4ff;
+    margin-bottom: 40px;
+    border: 2px solid #0f3460;
+}
+
+/* Flexbox puts the three buttons side by side with equal spacing between them */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* space between buttons without using margins */
+}
+
+/* Shared styles for all buttons — individual colors added via extra classes below */
+.btn {
+    padding: 14px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;     /* removes default browser border */
+    border-radius: 8px;
+    cursor: pointer;  /* shows hand cursor on hover — signals it's clickable */
+    letter-spacing: 1px;
+    /* smooth animation for hover/click effects */
+    transition: transform 0.1s ease, opacity 0.2s ease;
+}
+
+/* :hover triggers when mouse is over the button — fades it slightly */
+.btn:hover {
+    opacity: 0.85;
+}
+
+/* :active triggers while the button is being pressed — nudges it down 2px */
+.btn:active {
+    transform: translateY(2px);
+}
+
+/* Green = go */
+.btn-start {
+    background-color: #4caf50;
+    color: #ffffff;
+}
+
+/* Red = stop */
+.btn-stop {
+    background-color: #e94560;
+    color: #ffffff;
+}
+
+/* Grey = neutral secondary action */
+.btn-reset {
+    background-color: #4a4a6a;
+    color: #ffffff;
+}

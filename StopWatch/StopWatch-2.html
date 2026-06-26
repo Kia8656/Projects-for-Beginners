@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <link rel="stylesheet" href="StopWatch-2.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Wrapper div — centers everything and holds all our elements -->
+        <h1 class="title">Stopwatch</h1>
+
+        <!-- id="display" → JavaScript grabs this with getElementById("display") -->
+        <!-- Default text "00:00:00:00" = hours : minutes : seconds : milliseconds -->
+        <div class="display" id="display">00:00:00:00</div>
+
+        <div class="controls">
+            <!-- onclick calls the matching function in script.js when clicked -->
+            <button class="btn btn-start" onclick="start()">Start</button>
+            <button class="btn btn-stop" onclick="stop()">Stop</button>
+            <button class="btn btn-reset" onclick="reset()">Reset</button>
+        </div>
+    </div>
+
+    <!-- Script tag at the BOTTOM so HTML elements load before JS runs -->
+    <script src="StopWatch-2.js"></script>
+</body>
+</html>
