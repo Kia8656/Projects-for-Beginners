@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="Calculator-3.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+</head>
+<body>
+
+  <div id="calculator">
+    <input id="display" readonly>
+
+    <div id="keys">
+      <button class="operator-btn" data-value="+">+</button>
+      <button data-value="7">7</button>
+      <button data-value="8">8</button>
+      <button data-value="9">9</button>
+      <button class="operator-btn" data-value="-">-</button>
+      <button data-value="4">4</button>
+      <button data-value="5">5</button>
+      <button data-value="6">6</button>
+      <button class="operator-btn" data-value="*">*</button>
+      <button data-value="1">1</button>
+      <button data-value="2">2</button>
+      <button data-value="3">3</button>
+      <button class="operator-btn" data-value="/">/</button>
+      <button data-value="0">0</button>
+      <button data-value=".">.</button>
+      <button id="equals-btn">=</button>
+      <button class="operator-btn" id="clear-btn">C</button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js"></script>
+  <script src="Calculator-3.js"></script>
+</body>
+</html>
